@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Study Shield</title>
+        <link rel="stylesheet" href="popup.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Study Shield</h1>
+                <span id="status-badge" class="badge off">OFF</span>
+            </header>
+
+            <div class="main-card">
+                <div class="toggle-info">
+                    <h2>Study Mode</h2>
+                    <p>Block Shorts, ads &amp; distraction sites</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="studyModeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="features-list">
+                <label class="feature-item">
+                    <span>Purge YouTube Shorts + /shorts/ Redirect</span>
+                    <input type="checkbox" id="ytShortsToggle" checked>
+                </label>
+                <label class="feature-item">
+                    <span>Distraction-Free Watch (Hide Up Next)</span>
+                    <input type="checkbox" id="ytCleanWatchToggle" checked>
+                </label>
+                <label class="feature-item">
+                    <span>Hide YouTube Comments</span>
+                    <input type="checkbox" id="ytCommentsToggle" checked>
+                </label>
+                <label class="feature-item">
+                    <span>Block Website Ads</span>
+                    <input type="checkbox" id="adBlockToggle" checked>
+                </label>
+                <label class="feature-item">
+                    <span>Block Distracting Websites</span>
+                    <input type="checkbox" id="siteBlockToggle" checked>
+                </label>
+            </div>
+
+            <div class="sites-section">
+                <div class="sites-header">
+                    <span>Blocked Sites</span>
+                    <span id="passStatus" class="pass-status" hidden>5m pass active</span>
+                </div>
+                <form id="addSiteForm" class="site-form">
+                    <input type="text" id="siteInput" placeholder="e.g. twitch.tv" autocomplete="off">
+                    <button type="submit" class="btn-add">Add</button>
+                </form>
+                <div id="siteList" class="site-list"></div>
+            </div>
+
+            <div class="timer-section">
+                <div class="phase-tabs">
+                    <button type="button" id="focusPhaseBtn" class="phase-btn active">Focus 25m</button>
+                    <button type="button" id="breakPhaseBtn" class="phase-btn">Break 5m</button>
+                </div>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <div class="timer-buttons">
+                    <button id="startTimerBtn" class="btn primary">Start Focus</button>
+                    <button id="resetTimerBtn" class="btn secondary">Reset</button>
+                </div>
+            </div>
+
+            <footer>
+                <span>Streak: <strong id="streakCount">1 Day</strong></span>
+                <span>Focus: <strong id="focusMinutes">0m</strong></span>
+                <span>Blocked: <strong id="blockedCount">0</strong></span>
+            </footer>
+        </div>
+
+        <script src="popup.js"></script>
+    </body>
+</html>

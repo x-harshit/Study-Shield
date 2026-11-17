@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Study Shield - Focus & Ad Blocker",
+  "version": "2.0",
+  "description": "Eliminates YouTube Shorts and recommendation traps, blocks distracting websites during study sessions, and runs a persistent Focus/Break timer.",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": false,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
